@@ -14,6 +14,7 @@ function getData(callback) {
         success: function (data) {
             console.log("Got latest data!");
             window.FozzyData = data;
+            window.FozzyPosition = data.length - 1;
             callback();
         },
         error: function () {
