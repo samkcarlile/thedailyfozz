@@ -1,5 +1,5 @@
 var FozzyData = {};
-var FozzyPosition = 0;
+var currentDate = moment();
 
 $(document).ready(function () {
     getData(refresh);
@@ -14,7 +14,6 @@ function getData(callback) {
         success: function (data) {
             console.log("Got latest data!");
             window.FozzyData = data;
-            window.FozzyPosition = data.length - 1;
             callback();
         },
         error: function () {
@@ -25,20 +24,23 @@ function getData(callback) {
 }
 
 function refresh() {
-    $('img')[0].src = FozzyData[FozzyPosition].url;
-    $('i')[0].innerText = FozzyData[FozzyPosition].date;
+    var key = currentDate.format("MM/DD/YY");
+    $('img')[0].src = FozzyData[key];
+    $('i')[0].innerText = key;
 }
 
 function next() {
-    if (FozzyPosition + 1 < FozzyData.length) {
-        FozzyPosition++;
+    var newDate = window.currentDate.clone().add(1, 'day');
+    if (newDate.format("MM/DD/YY") in window.FozzyData) {
+        window.currentDate = newDate;
         refresh();
     }
 }
 
 function previous() {
-    if (FozzyPosition - 1 > -1) {
-        FozzyPosition--;
+    var newDate = window.currentDate.clone().subtract(1, 'day');
+    if (newDate.format("MM/DD/YY") in window.FozzyData) {
+        window.currentDate = newDate;
         refresh();
     }
 }
