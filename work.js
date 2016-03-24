@@ -31,6 +31,10 @@ function refresh() {
 
 function next() {
     var newDate = window.currentDate.clone().add(1, 'day');
+    if (newDate.isAfter(moment(), 'day')) {
+        return;
+    }
+    
     if (newDate.format("MM/DD/YY") in window.FozzyData) {
         window.currentDate = newDate;
         refresh();
