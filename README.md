@@ -5,10 +5,12 @@ A collection of pictures of my dog Fozzy, one added each day.
 
 
 ##How to contribute
-Contributing is really easy. Just head over to [images.json](https://github.com/samkcarlile/thedailyfozz/blob/gh-pages/images.json) and add your date and image link
+Contributing is really easy. Just head over to [images.json](https://github.com/samkcarlile/thedailyfozz/blob/gh-pages/images.json) and add your date and image link (this is assuming you have previously uploaded to imgur)
 to the JSON.
 
 ####If you are not familiar with JSON, here is a step-by-step
+
+**Be sure to upload your image to [imgur](http://imgur.com) and get your *direct link* before starting.**
 
 - 1. Locate the bottom of the file. It will be the only line that doesn't end with a comma (besides the brackets that remain at the top and bottom of the file) and looks like this:
 ```
